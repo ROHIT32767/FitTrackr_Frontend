@@ -65,8 +65,11 @@ export default class CreateExercise extends React.Component {
             date: this.state.date
         }
         console.log(exercise)
-        axios.post('https://exercise-tracker-backend-jyk5.onrender.com/exercises/add',exercise).then(res => console.log(res.data)).catch(err => console.log(err))
-        // window.location = "/"
+        axios.post('https://exercise-tracker-backend-jyk5.onrender.com/exercises/add',exercise).then(res => {
+            console.log(res.data)
+            // window.location = "/"
+        }).catch(err => console.log(err))
+        
     }
 
     render() {

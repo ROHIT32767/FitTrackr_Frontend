@@ -91,7 +91,7 @@ class EditExerciseList extends Component {
     axios.post(`https://exercise-tracker-backend-jyk5.onrender.com/update/${this.props.params.id}`, exercise)
       .then(res => console.log(res.data));
 
-    window.location = '/';
+    // window.location = '/';
   }
 
   render() {

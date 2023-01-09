@@ -41,7 +41,7 @@ export default class ExerciseList extends Component {
                 console.log(res);
                 console.log(res.data);
             })
-        this.setState(this.state.exercises.filter(element => element._id !== id))
+        // this.setState(this.state.exercises.filter(element => element._id !== id))
     }
     exerciseList() {
         return this.state.exercises.map(element => {
