@@ -24,7 +24,7 @@ export default class ExerciseList extends Component {
         this.exercisedelete = this.exercisedelete.bind(this)
     }
     componentDidMount() {
-        axios.get('http://localhost:5000/exercises')
+        axios.get('https://exercise-tracker-backend-jyk5.onrender.com/exercises')
             .then(res => {
                 const persons = res.data;
                 if (persons.length > 0) {
@@ -36,7 +36,7 @@ export default class ExerciseList extends Component {
         ).catch(error => console.log(error))
     }
     exercisedelete(id) {
-        axios.delete(`http://localhost:5000/exercises/${id}`)
+        axios.delete(`https://exercise-tracker-backend-jyk5.onrender.com/exercises/${id}`)
             .then(res => {
                 console.log(res);
                 console.log(res.data);

@@ -19,7 +19,7 @@ export default class CreateExercise extends React.Component {
         }
     }
     componentDidMount() {
-        axios.get('http://localhost:5000/users/')
+        axios.get('https://exercise-tracker-backend-jyk5.onrender.com/users/')
             .then(response => {
                 const persons = response.data
                 if (persons.length > 0) {
@@ -65,7 +65,7 @@ export default class CreateExercise extends React.Component {
             date: this.state.date
         }
         console.log(exercise)
-        axios.post('http://localhost:5000/exercises/add',exercise).then(res => console.log(res.data)).catch(err => console.log(err))
+        axios.post('https://exercise-tracker-backend-jyk5.onrender.com/exercises/add',exercise).then(res => console.log(res.data)).catch(err => console.log(err))
         window.location = "/"
     }
 

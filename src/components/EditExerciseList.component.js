@@ -27,7 +27,7 @@ class EditExerciseList extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:5000/exercises/'+this.props.params.id)
+    axios.get('https://exercise-tracker-backend-jyk5.onrender.com/exercises/'+this.props.params.id)
       .then(response => {
         this.setState({
           username: response.data.username,
@@ -40,7 +40,7 @@ class EditExerciseList extends Component {
         console.log(error);
       })
 
-    axios.get('http://localhost:5000/users/')
+    axios.get('https://exercise-tracker-backend-jyk5.onrender.com/users/')
       .then(response => {
         const persons = response.data
         if (persons.length > 0) {
@@ -88,7 +88,7 @@ class EditExerciseList extends Component {
       date: this.state.date
     }
     console.log(exercise);
-    axios.post(`http://localhost:5000/exercises/update/${this.props.params.id}`, exercise)
+    axios.post(`https://exercise-tracker-backend-jyk5.onrender.com/update/${this.props.params.id}`, exercise)
       .then(res => console.log(res.data));
 
     window.location = '/';
