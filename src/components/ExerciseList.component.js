@@ -39,6 +39,7 @@ export default class ExerciseList extends Component {
     exercisedelete(id) {
         axios.delete(`https://exercise-tracker-backend-jyk5.onrender.com/exercises/${id}`)
             .then(res => {
+                console.log(`https://exercise-tracker-backend-jyk5.onrender.com/exercises/${id}`)
                 console.log(res);
                 console.log(res.data);
             })
