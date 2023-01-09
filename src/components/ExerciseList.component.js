@@ -10,7 +10,7 @@ function ExerciseComponent(props) {
             <td className="table-primary">{props.duration}</td>
             <td className="table-primary">{props.date.substring(0,10)}</td>
             <td colSpan={2} className="table-primary">
-              <span><Link to={`/edit/${props.id}`} className="nav-link"> <VscEdit /></Link></span>  <span><a href="/" onClick={(() => { props.exercisedelete(props.id) })}><VscTrash /></a></span> 
+              <span><Link to={`/edit/${props.id}`} className="nav-link"> update</Link></span>  <span><a href="/" onClick={(() => {props.exercisedelete(props.id) })}>delete</a></span> 
             </td>
         </tr>
     )
@@ -22,6 +22,7 @@ export default class ExerciseList extends Component {
             exercises: []
         }
         this.exercisedelete = this.exercisedelete.bind(this)
+        this.exerciseList = this.exerciseList.bind(this)
     }
     componentDidMount() {
         axios.get('https://exercise-tracker-backend-jyk5.onrender.com/exercises')
