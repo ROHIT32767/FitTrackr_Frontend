@@ -66,7 +66,7 @@ export default class CreateExercise extends React.Component {
         }
         console.log(exercise)
         axios.post('https://exercise-tracker-backend-jyk5.onrender.com/exercises/add',exercise).then(res => console.log(res.data)).catch(err => console.log(err))
-        window.location = "/"
+        // window.location = "/"
     }
 
     render() {
