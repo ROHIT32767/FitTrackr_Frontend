@@ -46,8 +46,6 @@ export default class ExerciseList extends Component {
             }).catch(err => {
                 console.log(`Error in Deletion :: `)
                 console.log(`https://exercise-tracker-backend-jyk5.onrender.com/exercises/${id}`)
-                console.log(res);
-                console.log(res.data);
             })
 
     }
