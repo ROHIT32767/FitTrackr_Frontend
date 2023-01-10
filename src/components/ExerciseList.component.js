@@ -1,16 +1,16 @@
 import React, { Component } from "react"
 import axios from "axios"
 import { Link } from 'react-router-dom';
-import {VscEdit,VscTrash} from "react-icons/vsc";
+import { VscEdit, VscTrash } from "react-icons/vsc";
 function ExerciseComponent(props) {
     return (
         <tr>
             <td className="table-primary">{props.username}</td>
             <td className="table-primary">{props.description}</td>
             <td className="table-primary">{props.duration}</td>
-            <td className="table-primary">{props.date.substring(0,10)}</td>
+            <td className="table-primary">{props.date.substring(0, 10)}</td>
             <td colSpan={2} className="table-primary">
-              <span><Link to={`/edit/${props.id}`} className="nav-link"><VscEdit/></Link></span>  <span><a href="/" onClick={(() => {props.exercisedelete(props.id) })}><VscTrash/></a></span> 
+                <span><Link to={`/edit/${props.id}`} className="nav-link"><VscEdit /></Link></span>  <span><a href="/" onClick={(() => { props.exercisedelete(props.id) })}><VscTrash /></a></span>
             </td>
         </tr>
     )
@@ -34,7 +34,7 @@ export default class ExerciseList extends Component {
                     })
                 }
             }
-        ).catch(error => console.log(error))
+            ).catch(error => console.log(error))
     }
     exercisedelete(id) {
         axios.delete(`https://exercise-tracker-backend-jyk5.onrender.com/exercises/${id}`)
@@ -42,8 +42,14 @@ export default class ExerciseList extends Component {
                 console.log(`https://exercise-tracker-backend-jyk5.onrender.com/exercises/${id}`)
                 console.log(res);
                 console.log(res.data);
+                this.setState({ exercises: this.state.exercises.filter(element => element._id !== id) })
+            }).catch(err => {
+                console.log(`Error in Deletion :: `)
+                console.log(`https://exercise-tracker-backend-jyk5.onrender.com/exercises/${id}`)
+                console.log(res);
+                console.log(res.data);
             })
-        // this.setState(this.state.exercises.filter(element => element._id !== id))
+
     }
     exerciseList() {
         return this.state.exercises.map(element => {

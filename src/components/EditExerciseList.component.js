@@ -89,8 +89,8 @@ class EditExerciseList extends Component {
     }
     console.log(exercise);
     axios.post(`https://exercise-tracker-backend-jyk5.onrender.com/exercises/update/${this.props.params.id}`, exercise)
-      .then(res => console.log(res.data));
-    // window.location = '/';
+      .then(res => {console.log(res.data)
+      setTimeout(()=>window.location = '/',1500)});
   }
 
   render() {
